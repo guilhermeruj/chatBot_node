@@ -1,0 +1,101 @@
+[
+  {
+    "clinte": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "12345678",
+    "tipo": "CASA",
+    "end": "Ruão",
+    "complemento": "Ao",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553499601296@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "12345678",
+    "tipo": "CASA",
+    "end": "Rua",
+    "complemento": "Não",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553484406710@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "48400322",
+    "tipo": "CASA",
+    "end": "Rua Varginha 1856",
+    "complemento": "Não",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553499601296@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "38500322",
+    "tipo": "CONDOMÍNIO",
+    "end": "Rua João Vicente 326",
+    "complemento": "Próximo a algar",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553499601296@c.us",
+    "cliente": "Contratar novo pacote",
+    "cidade": "Uberlândia",
+    "cep": "38476999",
+    "tipo": "CONDOMÍNIO",
+    "end": "Planalto 123",
+    "complemento": "Não",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553484406710@c.us",
+    "cliente": "Contratar novo pacote",
+    "cidade": "Uberlândia",
+    "cep": "38476999",
+    "tipo": "CONDOMÍNIO",
+    "end": "Av Felisberto Carrijo 767",
+    "complemento": "Casa 9",
+    "referencia": "Ao lado da Sal da Terra"
+  },
+  {
+    "tel": "553499601296@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "12345678",
+    "tipo": "CASA",
+    "end": "Rua",
+    "complemento": "Não",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553484406710@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "12345678",
+    "tipo": "CASA",
+    "end": "Rua 7 bairro Carlos Duarte",
+    "complemento": "Próximo ao Distrito 7",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553499601296@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "12345678",
+    "tipo": "CASA",
+    "end": "Rua do economista 335",
+    "complemento": "Não",
+    "referencia": "Não"
+  },
+  {
+    "tel": "553491239046@c.us",
+    "cliente": "NÃO",
+    "cidade": "Uberlândia",
+    "cep": "38400112",
+    "tipo": "PRÉDIO",
+    "end": "501",
+    "complemento": "não",
+    "referencia": "não"
+  }
+]

@@ -1,20 +1,16 @@
-import dialogo2 from "./dialogo2.js";
-
 function dialogo1(client, message) {
-  const menu = {
-    header: "Você já é nosso cliente?",
-    subtitle: "Por favor, escolha uma das opções abaixo:",
-    buttons: [
-      { id: "sim", text: "SIM" },
-      { id: "nao", text: "NÃO" },
-    ],
-  };
   client
-    .sendButtons(message.from, menu.header, menu.buttons, menu.subtitle)
-    .then(() => {
-      console.log("Buttons sent.");
-    })
-    .catch((error) => console.error("Error when sending buttons", error));
+  .sendText(
+    message.from,
+    "*Olá, Tudo bem?* Aqui é o Rafael, seja bem vido da *BellaPizza.*\n------------------------------------------------------\nDigite o numero correspondente ao que você deseja\n\n1 - Cardápio\n2 - Promoções\n3 - Fazer o seu pedido\n4 - Falar com Nosso Atendente\n5 - Encerrar a Conversa",
+    { quotedMessage: message }
+  )
+  .then(() => {
+    console.log("Message sent.");
+  })
+  .catch((error) => {
+    console.error("Error when sending message", error);
+  });
 }
 
 export default dialogo1;

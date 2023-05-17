@@ -1,12 +1,12 @@
 {
-  "name": "botwhatsapp",
+  "name": "botbellapizza",
   "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "node src/server.js",
-    "start": "node src/disp.js"
+    "start": "node src/botBellaPizza.js"
   },
   "dependencies": {
     "venom-bot": "^4.2.7"

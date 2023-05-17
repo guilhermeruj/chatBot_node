@@ -2,7 +2,7 @@ function dialogo5(client, message) {
     client
       .sendText(
         message.from,
-        "Qual o endereço, bairro, numero e rua? (Número da casa, bloco, quarteirão, exemplo 3d - andar 4°)",
+        "Por favor digite o numero da pizza desejada, logo apos o seu nome e endereço de residencia",
         { quotedMessage: message }
       )
       .then(() => {

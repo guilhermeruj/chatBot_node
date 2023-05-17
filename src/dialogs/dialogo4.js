@@ -1,11 +1,10 @@
 function dialogo4(client, message) {
   const menu = {
-    header: "A instalação seria em casa, prédio, condomínio?",
+    header: "O pedido está correto?",
     subtitle: "Por favor, escolha uma das opções abaixo:",
     buttons: [
-      { id: "casa", text: "CASA" },
-      { id: "prédio", text: "PRÉDIO" },
-      { id: "condomínio", text: "CONDOMÍNIO" },
+      { id: "Sim", text: "SIM" },
+      { id: "Nao", text: "NÃO" },
     ],
   };
   client

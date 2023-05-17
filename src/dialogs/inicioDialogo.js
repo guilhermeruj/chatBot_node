@@ -2,11 +2,11 @@ export function inicioDialogo(client, message) {
   const menu = {
     header: "Escolha uma opção:",
     content:
-      "👋 Que bom que você gostou da nossa oferta.\n Eu sou o consultor virtual da Click e vou dar continuidade ao seu atendimento\n 🙋‍♂️",
+      "👋 *Saudação*\n\nTudo bem? Aqui é o Rafael da *BellaPizza.*\n\nComo posso ajudar você a fazer o seu pedido?🙋‍♂️",
     buttons: [
-      { id: "1", text: "Quero contratar" },
-      { id: "2", text: "Quais os planos" },
-      { id: "3", text: "Falar com o atendente" },
+      { id: "Cardápio", text: "Ver o Cardápio" },
+      { id: "PROMOÇOES", text: "Promoções do Cardápio" },
+      { id: "Fazer o seu pedido", text: "Numero da Pizza, Nome,Endereço" },
     ],
   };
 

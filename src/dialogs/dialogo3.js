@@ -1,6 +1,6 @@
 function dialogo3(client, message) {
   client
-    .sendText(message.from, "Digite seu CEP (Exemplo: 12345678):", {
+    .sendbuttons(message.from, "Confira nossas promoções disponiveis:\n", {
       quotedMessage: message,
     })
     .then(() => {

@@ -1,15 +1,13 @@
-function dialogo5(client, message) {
-    client
-      .sendText(
-        message.from,
-        "Por favor digite o numero da pizza desejada, logo apos o seu nome e endereço de residencia",
-        { quotedMessage: message }
-      )
-      .then(() => {
-        console.log("Message sent.");
-      })
-      .catch((error) => {
-        console.error("Error when sending message", error);
-      });
-  }
+async function dialogo5(client, message) {
+  const texto =
+    "*Informe o endereço da sua residencia com numero, rua e bairro*";
+  await client
+    .sendText(message.from, texto)
+    .then(() => {
+      console.log("Mensagem enviada.");
+    })
+    .catch((error) => {
+      console.error("Erro ao enviar mensagem", error);
+    });
+}
 export default dialogo5;

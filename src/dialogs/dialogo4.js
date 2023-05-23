@@ -1,17 +1,13 @@
-function dialogo4(client, message) {
-  const menu = {
-    header: "O pedido está correto?",
-    subtitle: "Por favor, escolha uma das opções abaixo:",
-    buttons: [
-      { id: "Sim", text: "SIM" },
-      { id: "Nao", text: "NÃO" },
-    ],
-  };
-  client
-    .sendButtons(message.from, menu.header, menu.buttons, menu.subtitle)
+async function dialogo6(client, message) {
+  const texto =
+    "*Agora me informe qual o numero da pizza!*\n\n você pode consultar o link do cardápio";
+  await client
+    .sendText(message.from, texto)
     .then(() => {
-      console.log("Buttons sent.");
+      console.log("Mensagem enviada.");
     })
-    .catch((error) => console.error("Error when sending buttons", error));
+    .catch((error) => {
+      console.error("Erro ao enviar mensagem", error);
+    });
 }
-export default dialogo4;
+export default dialogo6;

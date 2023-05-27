@@ -2,67 +2,67 @@
   {
     "id": 2,
     "name": "Marguerita",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 3,
     "name": "Paulistana",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 4,
     "name": "Calabresa",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 5,
     "name": "Presunto",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 6,
     "name": "Mussafrango",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 7,
     "name": "Catufrango",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 8,
     "name": "Pão com alho",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 9,
     "name": "Calabresa ao alho",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 10,
     "name": "Frango ao Molho ",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 11,
     "name": "Frango e Milho pedacos",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 12,
     "name": "Portuguesa",
-    "pedacos": 35,
+    "pedacos": "35,00",
     "pedacos8": 45
   },
   {
@@ -198,7 +198,7 @@
     "pedacos8": 44
   },
   {
-    "id": 35,
+    "id": "35,00",
     "name": "Chocolate ao leite",
     "pedacos4": 34,
     "pedacos8": 44
@@ -206,19 +206,19 @@
   {
     "id": 36,
     "name": "Confetes",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 37,
     "name": "Brigadeiro",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {
     "id": 38,
     "name": "Holandesa",
-    "pedacos4": 35,
+    "pedacos4": "35,00",
     "pedacos8": 45
   },
   {

@@ -148,53 +148,24 @@ function start(client) {
         dialogoencerra(client, message);
         atendimento[tel].stage = 16;
       }
-
-      // ---------------- Salva no Json -----------------
-      else if (message.body && atendimento.stage === 30) {
-        atendimento.end = message.body;
-
-        const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza.join(", ");
-        const end = atendimento.end;
-        const nomePizza = atendimento.pizza.name
-
-        // Envia a mensagem de texto primeiro
-        const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
-
-        console.log("atendimento:", atendimento);
-        console.log("cliente:", cliente);
-        console.log("numeroPizza:", numeroPizza);
-        console.log("nomePizza:", pizza.name);
-        console.log("end:", end);
-        console.log("textomensagem:", textomensagem);
-
-        client
-          .sendText(message.from, textomensagem)
-          .then(() => {
-            console.log("Mensagem enviada.");
-          })
-          .catch((error) => {
-            console.error("Erro ao enviar a mensagem.", error);
-          });
-
-        atendimento[tel].stage = 12;
-      } else if (message.body === "1" && atendimento[tel].stage === 12) {
-        //confirma e envia para o atendente ou resenta o estagio
+      // Salvar dados em json
+      else if (message.body === "1" && atendimento[tel].stage === 12) {
         atendimento[tel].stage = 18;
         // Crie um objeto temporário contendo apenas as propriedades que têm valores
         const tempObj = {
           tel: message.from,
           cliente: atendimento.cliente,
-          numeroPizza: atendimento.numeroPizza,
+          numeroPizza: atendimento[tel].numeroPizza,
           end: atendimento.end,
-          stage: atendimento.stage,
+          stage: atendimento[tel].stage,
         };
 
         salvaContato(tempObj); // Passe o objeto temporário para a função salvaContato
         client
           .sendText(
             message.from,
-            `seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
+            `Seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
+            { waitForAck: true }
           )
           .then(() => {
             console.log("Message sent.");
@@ -202,9 +173,36 @@ function start(client) {
           .catch((error) => {
             console.error("Error when sending message", error);
           });
-      }
+        atendimento[tel].stage = 31;
+      } else if (message.body && atendimento[tel].stage === 30) {
+        atendimento.end = message.body;
 
-      // ------------------ Ajustes do pedido -----------------
+        const cliente = atendimento.cliente;
+        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
+        console.log(numeroPizza);
+        const end = atendimento.end;
+
+        const valores = atendimento[tel].valor;
+        let total = 0;
+
+        for (let i = 0; i < valores.length; i++) {
+          const valor = parseFloat(valores[i].replace(",", "."));
+          total += valor;
+        }
+
+        // Envia a mensagem de texto primeiro
+
+        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
+        client
+          .sendText(message.from, textomensagem)
+          .then(() => {
+            console.log("Message sent.");
+          })
+          .catch((error) => {
+            console.error("Erro ao enviar a mensagem.", error);
+          });
+        atendimento[tel].stage = 12;
+      } // ------------------ Ajustes do pedido -----------------
       else if (message.body === "2" && atendimento[tel].stage === 12) {
         // Pergunta o que esta errado
         const textomensagem =
@@ -224,59 +222,15 @@ function start(client) {
         atendimento[tel].stage = 11;
       } else if (message.body === "8" && atendimento[tel].stage === 10) {
         // Altera Pedido numero da Pizza
+        atendimento.numeroPizza = [];
+        atendimento[tel].valor = [];
         dialogo4(client, message);
-        atendimento[tel].stage = 13;
+        atendimento[tel].stage = 4;
         //Altera o cep
       } else if (message.body === "9" && atendimento[tel].stage === 10) {
         dialogo5(client, message);
         atendimento[tel].stage = 5;
-      } else if (message.body && atendimento[tel].stage === 30) {
-        atendimento.end = message.body;
-
-        const cliente = atendimento.cliente;
-        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
-        console.log(numeroPizza);
-
-        const end = atendimento.end;
-
-        // Envia a mensagem de texto primeiro
-
-        const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
-        client
-          .sendText(message.from, textomensagem)
-          .then(() => {
-            console.log("Message sent.");
-          })
-          .catch((error) => {
-            console.error("Erro ao enviar a mensagem.", error);
-          });
-        atendimento[tel].stage = 12;
-      } else if (message.body && atendimento.stage === 30) {
-        atendimento.end = message.body;
-
-        const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza.join(" , ");
-        const end = atendimento.end;
-
-        // Envia a mensagem de texto primeiro
-        const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
-
-        console.log("atendimento:", atendimento);
-        console.log("cliente:", cliente);
-        console.log("numeroPizza:", numeroPizza);
-        console.log("end:", end);
-        console.log("textomensagem:", textomensagem);
-
-        client
-          .sendText(message.from, textomensagem)
-          .then(() => {
-            console.log("Mensagem enviada.");
-          })
-          .catch((error) => {
-            console.error("Erro ao enviar a mensagem.", error);
-          });
-      }
-      // --------------------- Final do ajuste ---------------
+      } //------------------- Final do ajuste ---------------
       // Caso algo de errado
       else {
         atendimento[tel].stage = 1;

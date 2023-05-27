@@ -6,10 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "node src/server.js",
-    "start": "nodemon src/botBellaPizza.js"
+    "start": "nodemon --ignore atendimentos.json src/botBellaPizza.js"
   },
   "dependencies": {
     "nodemon": "^2.0.22",
-    "venom-bot": "^5.0.1"
+    "venom-bot": "^4.2.7"
   }
 }

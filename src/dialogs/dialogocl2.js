@@ -1,8 +1,8 @@
-async function dialogocl2(client, message) {
+function dialogocl2(client, message) {
   const texto =
     "Descreva em poucas palavras o que precisa ou informe o numero do pedido e aguarde alguns instante que o atendente ira te responder.";
-  await client
-    .sendText(message.from, texto)
+  client
+    .sendText(message.from, texto, { waitForAck: true })
     .then(() => {
       console.log("Mensagem enviada.");
     })

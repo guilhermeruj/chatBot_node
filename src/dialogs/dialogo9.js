@@ -3,7 +3,7 @@ async function dialogo9(client, message) {
   await client
     .sendText(message.from, texto)
     .then(() => {
-      console.log("MMensagem enviada.");
+      console.log("Mensagem enviada.");
     })
     .catch((error) => {
       console.error("Erro ao enviar mensagem", error);

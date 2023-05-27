@@ -1,6 +1,5 @@
 import { create, Whatsapp } from "venom-bot";
 import fs from "fs";
-import path from "path";
 import dialogocl2 from "./dialogs/dialogocl2.js";
 import dialogo1 from "./dialogs/dialogo1.js";
 import dialogo2 from "./dialogs/dialogo2.js";
@@ -9,8 +8,12 @@ import dialogo4 from "./dialogs/dialogo4.js";
 import dialogo5 from "./dialogs/dialogo5.js";
 import dialogo6 from "./dialogs/dialogo6.js";
 import dialogoencerra from "./dialogs/dialogoencerra.js";
+import buscarPizza from "./dialogs/buscarPizza.js";
+import dialogoPedaco from "./dialogs/dialogoPedaco.js";
+import dialogoendereco from "./dialogs/dialogoendereco.js";
+import { parse } from "path";
+
 const promo = fs.readFileSync("./imagens/promo.PNG");
-const pizza = JSON.parse(fs.readFileSync("pizzabella.json", "utf8"));
 
 function start(client) {
   console.log("Cliente Venom iniciado!");
@@ -57,13 +60,14 @@ function start(client) {
         atendimento[tel] = {
           tel: tel,
           cliente: null,
-          numeroPizza: null,
+          numeroPizza: [],
           end: null,
-          stage: stage, // Define em qual Else if o cliente esta. Controla a msg
+          valor: [],
+          stage: stage,
+          id: null, // Define em qual Else if o cliente esta. Controla a msg
         };
         console.log("New atendimento entry created:", atendimento[tel]);
       }
-      console.log(message);
       //  ---------- Inicio da conversa
       if (message.body && atendimento[tel].stage === 1) {
         dialogo1(client, message);
@@ -94,6 +98,7 @@ function start(client) {
         dialogo3(client, message);
         atendimento[tel].stage = 3;
       }
+
       //  -------------------- Faz abertura para atendimento
       else if (message.body === "4" && atendimento[tel].stage === 2) {
         dialogocl2(client, message);
@@ -103,12 +108,39 @@ function start(client) {
         atendimento[tel].stage = 4;
       } else if (message.body && atendimento[tel].stage === 4) {
         // Recebe numero da pizza e envia dialogo de endereço
-        atendimento.numeroPizza = message.body;
-        //pergunta o endereço
-        dialogo5(client, message);
+        const id = parseInt(message.body);
+        atendimento[tel].id = id;
+        const pizza = buscarPizza(id);
+        atendimento[tel].numeroPizza.push(pizza.name);
+        const nomePizza = atendimento[tel].numeroPizza;
+        //pergunta quantos pedaços
+        dialogoPedaco(client, message, nomePizza);
         atendimento[tel].stage = 5;
+      } else if (message.body && atendimento[tel].stage === 5) {
+        const pedacos = message.body;
+        // verifica qual o pedaço
+        if (pedacos === "4") {
+          const id = atendimento[tel].id;
+          const pizza = buscarPizza(id);
+          atendimento[tel].valor.push(pizza.pedacos4);
+          console.log(atendimento[tel]);
+          dialogo5(client, message, atendimento[tel].numeroPizza);
+          atendimento[tel].stage = 6;
+        } else {
+          const id = atendimento[tel].id;
+          const pizza = buscarPizza(id);
+          atendimento[tel].valor.push(pizza.pedacos8);
+          console.log(atendimento[tel]);
+          dialogo5(client, message, atendimento[tel].numeroPizza);
+          atendimento[tel].stage = 6;
+        }
+      } else if (message.body === "1" && atendimento[tel].stage === 6) {
+        dialogo4(client, message);
+        atendimento[tel].stage = 4;
+      } else if (message.body === "2" && atendimento[tel].stage === 6) {
+        dialogoendereco(client, message);
+        atendimento[tel].stage = 30;
       }
-
       // ----------Encerra atendimento
       else if (message.body === "5" && atendimento[tel].stage === 2) {
         atendimento.end = message.body;
@@ -118,7 +150,7 @@ function start(client) {
       }
 
       // ---------------- Salva no Json -----------------
-      else if (message.body && atendimento[tel].stage === 5) {
+      else if (message.body && atendimento[tel].stage === 30) {
         atendimento.end = message.body;
 
         const cliente = atendimento.cliente;
@@ -126,6 +158,7 @@ function start(client) {
         const end = atendimento.end;
 
         // Envia a mensagem de texto primeiro
+
         const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
         client
           .sendText(message.from, textomensagem)
@@ -190,14 +223,17 @@ function start(client) {
       } else if (message.body === "9" && atendimento[tel].stage === 10) {
         dialogo5(client, message);
         atendimento[tel].stage = 5;
-      } else if (message.body && atendimento[tel].stage === 11) {
-        atendimento.cliente = message.body;
+      } else if (message.body && atendimento[tel].stage === 30) {
+        atendimento.end = message.body;
 
         const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza;
+        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
+        console.log(numeroPizza);
+
         const end = atendimento.end;
 
-        //  Envia a mensagem de texto primeiro
+        // Envia a mensagem de texto primeiro
+
         const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
         client
           .sendText(message.from, textomensagem)
@@ -205,30 +241,34 @@ function start(client) {
             console.log("Message sent.");
           })
           .catch((error) => {
-            console.error("Error when sending message", error);
+            console.error("Erro ao enviar a mensagem.", error);
           });
-
         atendimento[tel].stage = 12;
-      } else if (message.body && atendimento[tel].stage === 13) {
-        atendimento.numeroPizza = message.body;
+      } else if (message.body && atendimento.stage === 30) {
+        atendimento.end = message.body;
+
         const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza;
+        const numeroPizza = atendimento.numeroPizza.join(", ");
         const end = atendimento.end;
 
         // Envia a mensagem de texto primeiro
         const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
+
+        console.log("atendimento:", atendimento);
+        console.log("cliente:", cliente);
+        console.log("numeroPizza:", numeroPizza);
+        console.log("end:", end);
+        console.log("textomensagem:", textomensagem);
+
         client
           .sendText(message.from, textomensagem)
           .then(() => {
-            console.log("Message sent.");
+            console.log("Mensagem enviada.");
           })
           .catch((error) => {
-            console.error("Error when sending message", error);
+            console.error("Erro ao enviar a mensagem.", error);
           });
-
-        atendimento[tel].stage = 12;
       }
-
       // --------------------- Final do ajuste ---------------
       // Caso algo de errado
       else {

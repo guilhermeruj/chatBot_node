@@ -2,7 +2,7 @@ async function dialogoencerra(client, message) {
   const texto =
     "Agradeço a preferencia, precisando e so entrar em contato novamente.❤ ";
   await client
-    .sendText(message.from, texto)
+    .sendText(message.from, texto, {waitForAck: true})
     .then(() => {
       console.log("Mensagem enviada");
     })

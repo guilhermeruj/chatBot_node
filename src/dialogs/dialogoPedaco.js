@@ -1,7 +1,6 @@
-async function dialogo5(client, message, pizza) {
+async function dialogoPedaco(client, message, pizza) {
   
-  const texto = `*A pizza escolhida foi ${pizza}*. Deseja adicionar outra pizza ou bebida?\n
-  1- Sim 2- Não`;
+  const texto = `Você escolheu ${ pizza } Quantos pedaços você deseja 4 pedaços ou 8 pedaços?`;
   await client
     .sendText(message.from, texto)
     .then(() => {
@@ -11,4 +10,4 @@ async function dialogo5(client, message, pizza) {
       console.error("Erro ao enviar mensagem", error);
     });
 }
-export default dialogo5;
+export default dialogoPedaco;

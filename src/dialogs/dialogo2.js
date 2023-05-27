@@ -1,6 +1,6 @@
 async function dialogo2(client, message) {
   const texto =
-    "Para acessar o nosso cardápio clique no link abaixo:\n\n (linkDaPizzaria)";
+    "Para acessar o nosso cardápio clique no link abaixo:\n\nhttps://bit.ly/cardapiobellapizzaudi";
   await client
     .sendText(message.from, texto)
     .then(() => {

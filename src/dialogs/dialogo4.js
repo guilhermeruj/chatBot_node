@@ -1,6 +1,6 @@
-async function dialogo6(client, message) {
+async function dialogo4(client, message) {
   const texto =
-    "*Agora me informe qual o numero da pizza!*\n\n você pode consultar o link do cardápio";
+    "*Agora me informe qual o numero da pizza!*\n\nVocê pode consultar o link do cardápio e verificar um numero.\nhttps://bit.ly/cardapiobellapizzaudi";
   await client
     .sendText(message.from, texto)
     .then(() => {
@@ -10,4 +10,4 @@ async function dialogo6(client, message) {
       console.error("Erro ao enviar mensagem", error);
     });
 }
-export default dialogo6;
+export default dialogo4;

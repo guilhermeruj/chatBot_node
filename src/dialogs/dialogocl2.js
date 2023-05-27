@@ -1,6 +1,6 @@
 async function dialogocl2(client, message) {
   const texto =
-    "Acesse https://api.whatsapp.com/send?phone=5534998659595 e Descreva em poucas palavras o que precisa ou informe o numero do pedido e aguarde alguns instante que o atendente ira te responder.";
+    "Descreva em poucas palavras o que precisa ou informe o numero do pedido e aguarde alguns instante que o atendente ira te responder.";
   await client
     .sendText(message.from, texto)
     .then(() => {

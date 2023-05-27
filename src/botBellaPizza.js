@@ -150,20 +150,26 @@ function start(client) {
       }
 
       // ---------------- Salva no Json -----------------
-      else if (message.body && atendimento[tel].stage === 30) {
+      else if (message.body && atendimento.stage === 30) {
         atendimento.end = message.body;
 
         const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza;
+        const numeroPizza = atendimento.numeroPizza.join(", ");
         const end = atendimento.end;
 
         // Envia a mensagem de texto primeiro
-
         const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
+
+        console.log("atendimento:", atendimento);
+        console.log("cliente:", cliente);
+        console.log("numeroPizza:", numeroPizza);
+        console.log("end:", end);
+        console.log("textomensagem:", textomensagem);
+
         client
           .sendText(message.from, textomensagem)
           .then(() => {
-            console.log("Message sent.");
+            console.log("Mensagem enviada.");
           })
           .catch((error) => {
             console.error("Erro ao enviar a mensagem.", error);
@@ -186,8 +192,7 @@ function start(client) {
         client
           .sendText(
             message.from,
-            "Perfeito, O seu pedido já esta em produção com muito carinho e amor e so aguardar.❤",
-            { quotedMessage: message, waitForAck: true }
+            `${cliente}, seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
           )
           .then(() => {
             console.log("Message sent.");
@@ -248,7 +253,7 @@ function start(client) {
         atendimento.end = message.body;
 
         const cliente = atendimento.cliente;
-        const numeroPizza = atendimento.numeroPizza.join(", ");
+        const numeroPizza = atendimento.numeroPizza.join(" , ");
         const end = atendimento.end;
 
         // Envia a mensagem de texto primeiro

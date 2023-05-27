@@ -156,6 +156,7 @@ function start(client) {
         const cliente = atendimento.cliente;
         const numeroPizza = atendimento.numeroPizza.join(", ");
         const end = atendimento.end;
+        const nomePizza = atendimento.pizza.name
 
         // Envia a mensagem de texto primeiro
         const textomensagem = `Agora ${cliente} confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\nSe estiver correto digite 1 se não digite 2`;
@@ -163,6 +164,7 @@ function start(client) {
         console.log("atendimento:", atendimento);
         console.log("cliente:", cliente);
         console.log("numeroPizza:", numeroPizza);
+        console.log("nomePizza:", pizza.name);
         console.log("end:", end);
         console.log("textomensagem:", textomensagem);
 
@@ -192,7 +194,7 @@ function start(client) {
         client
           .sendText(
             message.from,
-            `${cliente}, seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
+            `seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
           )
           .then(() => {
             console.log("Message sent.");

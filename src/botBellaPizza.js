@@ -102,7 +102,9 @@ function start(client) {
       //  -------------------- Faz abertura para atendimento
       else if (message.body === "4" && atendimento[tel].stage === 2) {
         dialogocl2(client, message);
-      } else if (message.body && atendimento[tel].stage === 3) {
+      }
+      //recebe o nome do cliente
+      else if (message.body && atendimento[tel].stage === 3) {
         atendimento.cliente = message.body;
         dialogo4(client, message);
         atendimento[tel].stage = 4;
@@ -134,9 +136,12 @@ function start(client) {
           dialogo5(client, message, atendimento[tel].numeroPizza);
           atendimento[tel].stage = 6;
         }
-      } else if (message.body === "1" && atendimento[tel].stage === 6) {
+      }
+      // adiciona a pizza
+      else if (message.body === "1" && atendimento[tel].stage === 6) {
         dialogo4(client, message);
         atendimento[tel].stage = 4;
+        //chama o end acaso não queira mais nada
       } else if (message.body === "2" && atendimento[tel].stage === 6) {
         dialogoendereco(client, message);
         atendimento[tel].stage = 30;
@@ -150,7 +155,7 @@ function start(client) {
       }
       // Salvar dados em json
       else if (message.body === "1" && atendimento[tel].stage === 12) {
-        atendimento[tel].stage = 18;
+        atendimento[tel].stage = 19;
         // Crie um objeto temporário contendo apenas as propriedades que têm valores
         const tempObj = {
           tel: message.from,
@@ -164,25 +169,26 @@ function start(client) {
         client
           .sendText(
             message.from,
-            `Seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`,
-            { waitForAck: true }
+            `Obrigado, Seu pedido já está sendo preparado, tempo de entrega no máximo 60 minutos. Agradecemos pela preferência🍕 Bom Apetite!!!`
           )
           .then(() => {
-            console.log("Message sent.");
+            console.log("aqui caiu");
           })
           .catch((error) => {
             console.error("Error when sending message", error);
           });
         atendimento[tel].stage = 31;
-      } else if (message.body && atendimento[tel].stage === 30) {
-        atendimento.end = message.body;
-
+      }
+      //Ajuste do nome do cliente
+      else if (message.body && atendimento[tel].stage === 11) {
+        atendimento.cliente = message.body;
         const cliente = atendimento.cliente;
-        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
-        console.log(numeroPizza);
+        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
+        console.log("Estou aqui" + numeroPizza);
         const end = atendimento.end;
 
         const valores = atendimento[tel].valor;
+        console.log(valores);
         let total = 0;
 
         for (let i = 0; i < valores.length; i++) {
@@ -192,11 +198,41 @@ function start(client) {
 
         // Envia a mensagem de texto primeiro
 
-        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNumero da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
+        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
         client
           .sendText(message.from, textomensagem)
           .then(() => {
-            console.log("Message sent.");
+            console.log("Message Enviada.");
+          })
+          .catch((error) => {
+            console.error("Erro ao enviar a mensagem.", error);
+          });
+        atendimento[tel].stage = 12;
+      }
+      //validação do pedido
+      else if (message.body && atendimento[tel].stage === 30) {
+        atendimento.end = message.body;
+        const cliente = atendimento.cliente;
+        const numeroPizza = atendimento[tel].numeroPizza.join(", ");
+        console.log("Estou aqui" + numeroPizza);
+        const end = atendimento.end;
+
+        const valores = atendimento[tel].valor;
+        console.log(valores);
+        let total = 0;
+
+        for (let i = 0; i < valores.length; i++) {
+          const valor = parseFloat(valores[i].replace(",", "."));
+          total += valor;
+        }
+
+        // Envia a mensagem de texto primeiro
+
+        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
+        client
+          .sendText(message.from, textomensagem)
+          .then(() => {
+            console.log("Message Enviada.");
           })
           .catch((error) => {
             console.error("Erro ao enviar a mensagem.", error);
@@ -222,14 +258,14 @@ function start(client) {
         atendimento[tel].stage = 11;
       } else if (message.body === "8" && atendimento[tel].stage === 10) {
         // Altera Pedido numero da Pizza
-        atendimento.numeroPizza = [];
+        atendimento[tel].numeroPizza = [];
         atendimento[tel].valor = [];
         dialogo4(client, message);
         atendimento[tel].stage = 4;
         //Altera o cep
       } else if (message.body === "9" && atendimento[tel].stage === 10) {
-        dialogo5(client, message);
-        atendimento[tel].stage = 5;
+        dialogoendereco(client, message);
+        atendimento[tel].stage = 30;
       } //------------------- Final do ajuste ---------------
       // Caso algo de errado
       else {

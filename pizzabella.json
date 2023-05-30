@@ -3,359 +3,282 @@
     "id": 2,
     "name": "Marguerita",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 3,
     "name": "Paulistana",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 4,
     "name": "Calabresa",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 5,
     "name": "Presunto",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 6,
     "name": "Mussafrango",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 7,
     "name": "Catufrango",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 8,
     "name": "Pão com alho",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 9,
     "name": "Calabresa ao alho",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 10,
     "name": "Frango ao Molho ",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 11,
     "name": "Frango e Milho pedacos",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 12,
     "name": "Portuguesa",
     "pedacos": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 13,
     "name": "Fricassê",
-    "pedacos": 37,
-    "pedacos8": 47
+    "pedacos": "37,90",
+    "pedacos8": "47,90"
   },
   {
     "id": 14,
     "name": "Bacon e Milho",
-    "pedacos4": 39,
-    "pedacos8": 49
+    "pedacos4": "39,90",
+    "pedacos8": "49,90"
   },
   {
     "id": 15,
     "name": "Napolitana",
-    "pedacos4": 39,
-    "pedacos8": 49
+    "pedacos4": "39,90",
+    "pedacos8": "49,90"
   },
   {
     "id": 16,
     "name": "Toscana",
-    "pedacos4": 40,
-    "pedacos8": 50
+    "pedacos4": "40,90",
+    "pedacos8": "50,90"
   },
   {
     "id": 17,
     "name": "atum",
-    "pedacos4": 42,
-    "pedacos8": 52
+    "pedacos4": "42,90",
+    "pedacos8": "52,90"
   },
   {
     "id": 18,
     "name": "Frabacon",
-    "pedacos4": 43,
-    "pedacos8": 53
+    "pedacos4": "43,90",
+    "pedacos8": "53,90"
   },
   {
     "id": 19,
     "name": "Frango e Catupiry",
-    "pedacos4": 44,
-    "pedacos8": 54
+    "pedacos4": "44,90",
+    "pedacos8": "54,90"
   },
   {
     "id": 20,
     "name": "Palmito",
-    "pedacos4": 44,
-    "pedacos8": 54
+    "pedacos4": "44,90",
+    "pedacos8": "54,90"
   },
   {
     "id": 21,
     "name": "Milho e Catupiry",
-    "pedacos4": 44,
-    "pedacos8": 54
+    "pedacos4": "44,90",
+    "pedacos8": "54,90"
   },
   {
     "id": 22,
     "name": "Pepperoni",
-    "pedacos4": 44,
-    "pedacos8": 54
+    "pedacos4": "44,90",
+    "pedacos8": "54,90"
   },
   {
     "id": 23,
     "name": "Brócolis",
-    "pedacos4": 44,
-    "pedacos8": 54
+    "pedacos4": "44,90",
+    "pedacos8": "54,90"
   },
   {
     "id": 24,
     "name": "Vegetariana",
-    "pedacos4": 47,
-    "pedacos8": 57
+    "pedacos4": "47,90",
+    "pedacos8": "57,90"
   },
   {
     "id": 25,
     "name": "Mineira",
-    "pedacos4": 49,
-    "pedacos8": 59
+    "pedacos4": "49,90",
+    "pedacos8": "59,90"
   },
   {
     "id": 26,
     "name": "Quatro Queijos",
-    "pedacos4": 49,
-    "pedacos8": 59
+    "pedacos4": "49,90",
+    "pedacos8": "59,90"
   },
   {
     "id": 27,
     "name": "Cinco Queijos",
-    "pedacos4": 50,
-    "pedacos8": 60
+    "pedacos4": "50,90",
+    "pedacos8": "60,90"
   },
   {
     "id": 28,
     "name": "Cupim ao alho",
-    "pedacos4": 50,
-    "pedacos8": 60
+    "pedacos4": "50,90",
+    "pedacos8": "60,90"
   },
   {
     "id": 29,
     "name": "Carne Seca",
-    "pedacos4": 50,
-    "pedacos8": 60
+    "pedacos4": "50,90",
+    "pedacos8": "60,90"
   },
   {
     "id": 30,
     "name": "Baianinha",
-    "pedacos4": 50,
-    "pedacos8": 60
+    "pedacos4": "50,90",
+    "pedacos8": "60,90"
   },
   {
     "id": 31,
     "name": "La Bella",
-    "pedacos4": 51,
-    "pedacos8": 61
+    "pedacos4": "51,90",
+    "pedacos8": "61,90"
   },
   {
     "id": 32,
     "name": "Belíssima",
-    "pedacos4": 53,
-    "pedacos8": 63
+    "pedacos4": "53,90",
+    "pedacos8": "63,90"
   },
   {
     "id": 33,
     "name": "Banana com canela",
-    "pedacos4": 34,
-    "pedacos8": 44
+    "pedacos4": "34,90",
+    "pedacos8": "44,90"
   },
   {
     "id": 34,
     "name": "Chocolate Branco",
-    "pedacos4": 34,
-    "pedacos8": 44
+    "pedacos4": "34,90",
+    "pedacos8": "44,90"
   },
   {
     "id": "35,00",
     "name": "Chocolate ao leite",
-    "pedacos4": 34,
-    "pedacos8": 44
+    "pedacos4": "34,90",
+    "pedacos8": "44,90"
   },
   {
     "id": 36,
     "name": "Confetes",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 37,
     "name": "Brigadeiro",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 38,
     "name": "Holandesa",
     "pedacos4": "35,00",
-    "pedacos8": 45
+    "pedacos8": "45,00"
   },
   {
     "id": 39,
     "name": "Romeu e Julieta",
-    "pedacos4": 37,
-    "pedacos8": 47
+    "pedacos4": "37,90",
+    "pedacos8": "47,90"
   },
   {
     "id": 40,
     "name": "Banana com Chocolate",
-    "pedacos4": 37,
-    "pedacos8": 47
+    "pedacos4": "37,90",
+    "pedacos8": "47,90"
   },
   {
     "id": 41,
     "name": "Negresco",
-    "pedacos4": 37,
-    "pedacos8": 47
+    "pedacos4": "37,90",
+    "pedacos8": "47,90"
   },
   {
     "id": 42,
     "name": "Bis",
-    "pedacos4": 37,
-    "pedacos8": 47
+    "pedacos4": "37,90",
+    "pedacos8": "47,90"
   },
   {
     "id": 43,
     "name": "Chocolate com Morango",
-    "pedacos4": 38,
-    "pedacos8": 48
+    "pedacos4": "38,90",
+    "pedacos8": "48,90"
   },
   {
     "id": 44,
     "name": "Prestígio",
-    "pedacos4": 38,
-    "pedacos8": 48
+    "pedacos4": "38,90",
+    "pedacos8": "48,90"
   },
   {
     "id": 45,
     "name": "Fondue de Chocolate",
-    "pedacos4": 41,
-    "pedacos8": 51
+    "pedacos4": "41,90",
+    "pedacos8": "51,90"
   },
   {
     "id": 46,
     "name": "Super kids",
-    "pedacos4": 53,
-    "pedacos8": 63
+    "pedacos4": "53,90",
+    "pedacos8": "63,90"
   },
   {
     "id": 47,
     "name": "Holandesa Especial",
-    "pedacos4": 53,
-    "pedacos8": 63
+    "pedacos4": "53,90",
+    "pedacos8": "63,90"
   },
   {
     "id": 48,
     "name": "Morango Nevado",
-    "pedacos4": 53,
-    "pedacos8": 63
-  }, {
-    "id": 49,
-    "name": "Bordas Chocolate ao Leite / Chocolate Branco / Cheddar",
-    "pedacos4": 12,
-    "pedacos8": 0
-  },
-  {
-    "id": 50,
-    "name": "Bordas Catupiry / Cream Cheese/ Mussarela",
-    "pedacos4": 14,
-    "pedacos8": 0
-  },
-  {
-    "id": 51,
-    "name": "Bordas Quatro Queijos / Romeu e Julieta / Presunto e Mussarela",
-    "pedacos4": 16,
-    "pedacos8": 90
-  },
-  {
-    "id": 52,
-    "name": "Ovo",
-    "pedacos4": 3,
-    "pedacos8": 0
-  },
-  {
-    "id": 53,
-    "name": "Milho",
-    "pedacos4": 3,
-    "pedacos8": 0
-  },
-  {
-    "id": 54,
-    "name": "Batata Palha",
-    "pedacos4": 5,
-    "pedacos8": 0
-  },
-  {
-    "id": 55,
-    "name": "Presunto",
-    "pedacos4": 8,
-    "pedacos8": 0
-  },
-  {
-    "id": 56,
-    "name": "Frango",
-    "pedacos4": 10,
-    "pedacos8": 0
-  },
-  {
-    "id": 57,
-    "name": "Calabresa",
-    "pedacos4": "10",
-    "pedacos8": 0
-  },
-  {
-    "id": 58,
-    "name": "Bacon",
-    "pedacos4": 10,
-    "pedacos8": 0
-  },
-  {
-    "id": 59,
-    "name": "Catupiry",
-    "pedacos4": 12,
-    "pedacos8": 0
-  },
-  {
-    "id": 60,
-    "name": "Cheddar",
-    "pedacos4": 10,
-    "pedacos8": 0
-  },
-  {
-    "id": 61,
-    "name": "Palmito",
-    "pedacos4": 15,
-    "pedacos8": 0
+    "pedacos4": "53,90",
+    "pedacos8": "63,90"
   }
 ]

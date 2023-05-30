@@ -1,6 +1,6 @@
 async function dialogo6(client, message) {
   const texto =
-    "*Vamos dar inicio ao seu atendimento*\n\nInforme por favor o seu nome!";
+    "Informe seu nome para iniciarmos o atendimento!";
   await client
     .sendText(message.from, texto)
     .then(() => {

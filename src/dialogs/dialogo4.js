@@ -1,6 +1,6 @@
 async function dialogo4(client, message) {
   const texto =
-    "*Agora me informe qual o numero da pizza!*\n\nVocê pode consultar o link do cardápio e verificar um numero.\nhttps://bit.ly/cardapiobellapizzaudi";
+    "*Qual o numero da pizza!*\nVocê pode consultar o link do cardápio e verificar um numero.\nhttps://bit.ly/cardapiobellapizzaudi";
   await client
     .sendText(message.from, texto)
     .then(() => {

@@ -1,5 +1,5 @@
 async function dialogo9(client, message) {
-  const texto = "*Por gentileza informe a alteração desejada no pedido*";
+  const texto = "*Por gentileza informe a forma de pagamento:*";
   await client
     .sendText(message.from, texto)
     .then(() => {

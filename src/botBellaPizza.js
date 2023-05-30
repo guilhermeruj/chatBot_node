@@ -12,6 +12,7 @@ import buscarPizza from "./dialogs/buscarPizza.js";
 import dialogoPedaco from "./dialogs/dialogoPedaco.js";
 import dialogoendereco from "./dialogs/dialogoendereco.js";
 import { parse } from "path";
+import dialogo9 from "./dialogs/dialogo9.js";
 
 const promo = fs.readFileSync("./imagens/promo.PNG");
 
@@ -63,6 +64,7 @@ function start(client) {
           numeroPizza: [],
           end: null,
           valor: [],
+          pag: [],
           stage: stage,
           id: null, // Define em qual Else if o cliente esta. Controla a msg
         };
@@ -143,6 +145,10 @@ function start(client) {
         atendimento[tel].stage = 4;
         //chama o end acaso não queira mais nada
       } else if (message.body === "2" && atendimento[tel].stage === 6) {
+        dialogo9(client, message);
+        atendimento[tel].stage = 15;
+      } else if (message.body && atendimento[tel].stage === 15) {
+        atendimento.pag = message.body;
         dialogoendereco(client, message);
         atendimento[tel].stage = 30;
       }
@@ -185,6 +191,8 @@ function start(client) {
         const cliente = atendimento.cliente;
         const numeroPizza = atendimento[tel].numeroPizza.join(", ");
         console.log("Estou aqui" + numeroPizza);
+        const pag = atendimento.pag;
+        console.log("dindin prr" + pag);
         const end = atendimento.end;
 
         const valores = atendimento[tel].valor;
@@ -198,7 +206,7 @@ function start(client) {
 
         // Envia a mensagem de texto primeiro
 
-        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
+        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\nForma de pagamento: ${pag}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
         client
           .sendText(message.from, textomensagem)
           .then(() => {
@@ -215,6 +223,8 @@ function start(client) {
         const cliente = atendimento.cliente;
         const numeroPizza = atendimento[tel].numeroPizza.join(", ");
         console.log("Estou aqui" + numeroPizza);
+        const pag = atendimento.pag;
+        console.log("dindin prr" + pag);
         const end = atendimento.end;
 
         const valores = atendimento[tel].valor;
@@ -228,7 +238,7 @@ function start(client) {
 
         // Envia a mensagem de texto primeiro
 
-        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
+        const textomensagem = `Agora *${cliente}* confirme o seu pedido:\n\nNome da Pizza: ${numeroPizza}\nEndereço: ${end}\nForma de pagamento: ${pag}\n*Total: R$ ${total}*\n\n1 - Esta correto\n2 - Ficou errado`;
         client
           .sendText(message.from, textomensagem)
           .then(() => {

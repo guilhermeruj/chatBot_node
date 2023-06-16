@@ -1,5 +1,6 @@
 import { create, Whatsapp } from "venom-bot";
 import fs from "fs";
+import path from "path";
 import dialogocl2 from "./dialogs/dialogocl2.js";
 import dialogo1 from "./dialogs/dialogo1.js";
 import dialogo2 from "./dialogs/dialogo2.js";
@@ -89,7 +90,43 @@ function start(client) {
             "Promoção da semana"
           )
           .then((result) => {
-            console.log("Result: ", result); //return object success
+            client
+              .sendImage(
+                message.from,
+                "./imagens/promo2.png",
+                "image-name",
+                "Promoção da semana"
+              )
+              .then((result) => {
+                client
+                  .sendImage(
+                    message.from,
+                    "./imagens/promo3.png",
+                    "image-name",
+                    "Promoção da semana"
+                  )
+                  .then((result) => {
+                    client
+                      .sendImage(
+                        message.from,
+                        "./imagens/promo4.png",
+                        "image-name",
+                        "Promoção da semana"
+                      )
+                      .then((result) => {
+                        console.log("Result: ", result); //return object success
+                      })
+                      .catch((erro) => {
+                        console.error("Error when sending: ", erro); //return object error
+                      });
+                  })
+                  .catch((erro) => {
+                    console.error("Error when sending: ", erro); //return object error
+                  });
+              })
+              .catch((erro) => {
+                console.error("Error when sending: ", erro); //return object error
+              }); //return object success
           })
           .catch((erro) => {
             console.error("Error when sending: ", erro); //return object error
@@ -101,9 +138,15 @@ function start(client) {
         atendimento[tel].stage = 3;
       }
 
-      //  -------------------- Faz abertura para atendimento
+      //  -------------------- Faz abertura para pedido especial
       else if (message.body === "4" && atendimento[tel].stage === 2) {
+        dialogo6(client, message);
+        atendimento[tel].stage = 90;
+      }
+      //Abertura pra atendente
+      else if (message.body === "5" && atendimento[tel].stage === 2) {
         dialogocl2(client, message);
+        atendimento[tel].stage = 90;
       }
       //recebe o nome do cliente
       else if (message.body && atendimento[tel].stage === 3) {
@@ -153,7 +196,7 @@ function start(client) {
         atendimento[tel].stage = 30;
       }
       // ----------Encerra atendimento
-      else if (message.body === "5" && atendimento[tel].stage === 2) {
+      else if (message.body === "6" && atendimento[tel].stage === 2) {
         atendimento.end = message.body;
         //encerra o atendimento
         dialogoencerra(client, message);
